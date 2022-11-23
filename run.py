@@ -116,8 +116,8 @@ hangman_intro_image = [
         ___________
         |/        |
         |         O
-        |        /|\\
-        |         |     Press any key to continue.
+        |        /|\\    Press » S  to start new game
+        |         |     Press » H  for instructions
         |        / \\
         |\\
         ========
@@ -141,8 +141,9 @@ words = ('dublin reykjavik cardiff edinburgh belfast london oslo stockholm '
 
 
 def start_options():
-    print("   Press " + "» S  " + "to start new game")
-    print("   Press " + "» H  " + "for instructions")
+    # print("   Press " + "» S  " + "to start new game")
+    # print("   Press " + "» H  " + "for instructions")
+    print(hangman_intro_image[0])
     
     options = False
     while not options:
@@ -178,9 +179,9 @@ def intro_title():
 
 def main():
     intro_title()
-    print(hangman_intro_image[0])
+    # print(hangman_intro_image[0])
     # print("   Welcome to Hangman!\n")
-    # start_options()
+    start_options()
 
 
 main()
