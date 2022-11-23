@@ -152,12 +152,31 @@ def start_options():
 
         elif choice == "H":
             options = True
-            print("  Showing instructions...")
+            instructions()
 
         else:
             print(f" You selected {choice}. "
             "Please select S or H to continue ♥")
 
+
+def instructions():
+    print("\n")
+    print("A name of a city will be hidden behind blank spaces.\n"
+    "You must find the correct letters by guessing every letter.\n"
+    "Correct guesses will reveal a letter in the name.\nWrong guesses "
+    "reduces a life. You have 7 lives.\n\nHope you have fun!")
+    print("\nPlease select S to play ♥")
+
+    options = False
+    while not options:
+        choice = input("\n ").upper()
+        if choice == "S":
+            options = True
+            print("Starting new game...")
+
+        else:
+            print(f" You selected {choice}. "
+            "Please select S play ♥")
 
 def intro_title():
     print("""
