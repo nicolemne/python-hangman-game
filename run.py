@@ -1,4 +1,4 @@
-HANGMANGRAPHICS = [
+hangman_images = [
         """
         ___________
         |/        |
@@ -112,3 +112,29 @@ words = ('dublin reykjavik cardiff edinburgh belfast london oslo stockholm '
          'canberra hanoi lima ottawa jerusalem santiago brasilia kingston '
          'havana wellington pyongyang taipei bangkok manila jakarta '
          'mogadishu ulaanbataar ').split()
+
+
+def intro_title():
+    print("""
+    █░░ █▀▀ ▀█▀ ▀ █▀   █▀█ █░░ ▄▀█ █▄█  
+    █▄▄ ██▄ ░█░ ░ ▄█   █▀▀ █▄▄ █▀█ ░█░ ▄ ▄ ▄
+    """)
+    print("""
+
+    ██╗░░██╗░█████╗░███╗░░██╗░██████╗░███╗░░░███╗░█████╗░███╗░░██╗
+    ██║░░██║██╔══██╗████╗░██║██╔════╝░████╗░████║██╔══██╗████╗░██║
+    ███████║███████║██╔██╗██║██║░░██╗░██╔████╔██║███████║██╔██╗██║
+    ██╔══██║██╔══██║██║╚████║██║░░╚██╗██║╚██╔╝██║██╔══██║██║╚████║
+    ██║░░██║██║░░██║██║░╚███║╚██████╔╝██║░╚═╝░██║██║░░██║██║░╚███║
+    ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝
+    """)
+
+
+def main():
+    intro_title()
+    print(hangman_images[0])
+    print('\n')
+    print("Welcome to Hangman!\nPlease select one of the choices below.")
+
+
+main()
