@@ -8,6 +8,7 @@ hangman_images = [
         |        / \\
         |\\
         ========
+        \n     ✝ ✝ ✝ ✝ ✝ ✝ ✝ ✝ ✝
         """,
         """
         ___________
@@ -18,6 +19,7 @@ hangman_images = [
         |        /
         |\\
         ========
+        \n     ♥ ✝ ✝ ✝ ✝ ✝ ✝ ✝
         """,
         """
         __________
@@ -28,6 +30,7 @@ hangman_images = [
         |
         |\\
         ========
+        \n     ♥ ♥ ✝ ✝ ✝ ✝ ✝ ✝ ✝
         """,
         """
         __________
@@ -38,6 +41,7 @@ hangman_images = [
         |
         |\\
         ========
+        \n     ♥ ♥ ♥ ✝ ✝ ✝ ✝ ✝ ✝
         """,
         """
         __________
@@ -48,6 +52,7 @@ hangman_images = [
         |
         |\\
         ========
+        \n     ♥ ♥ ♥ ♥ ✝ ✝ ✝ ✝ ✝
         """,
         """
         __________
@@ -58,6 +63,7 @@ hangman_images = [
         |
         |\\
         ========
+        \n     ♥ ♥ ♥ ♥ ♥ ✝ ✝ ✝ ✝
         """,
         """
         __________
@@ -68,6 +74,7 @@ hangman_images = [
         |
         |\\
         ========
+        \n     ♥ ♥ ♥ ♥ ♥ ♥ ✝ ✝ ✝
         """,
         """
         __________
@@ -78,6 +85,7 @@ hangman_images = [
         |
         |
         ========
+        \n     ♥ ♥ ♥ ♥ ♥ ♥ ♥ ✝ ✝
         """,
         """
         |/
@@ -87,6 +95,7 @@ hangman_images = [
         |
         |
         ========
+        \n     ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ✝
         """,
 
         """
@@ -96,6 +105,7 @@ hangman_images = [
         |
         |
         ========
+        \n     ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥
         """,
         """
         """
@@ -115,8 +125,8 @@ words = ('dublin reykjavik cardiff edinburgh belfast london oslo stockholm '
 
 
 def start_options():
-    print("   Press " + "S  " + "to start new game")
-    print("   Press " + "H  " + "for instructions")
+    print("   Press " + "» S  " + "to start new game")
+    print("   Press " + "» H  " + "for instructions")
     
     options = False
     while not options:
@@ -130,14 +140,15 @@ def start_options():
             print("  Showing instructions...")
 
         else:
-            print("  Please select S or H to make your choice")
+            print(f" You selected {choice}. "
+            "Please select S or H to continue ♥")
             break
 
 
 def intro_title():
     print("""
-    █░░ █▀▀ ▀█▀ ▀ █▀   █▀█ █░░ ▄▀█ █▄█  
-    █▄▄ ██▄ ░█░ ░ ▄█   █▀▀ █▄▄ █▀█ ░█░ ▄ ▄ ▄
+    █░░ █▀▀ ▀█▀ ▀ █▀   █▀█ █░░ ▄▀█ █▄█ 
+    █▄▄ ██▄ ░█░ ░ ▄█   █▀▀ █▄▄ █▀█ ░█░ ▄ ▄ ▄
     """)
     print("""
     ██╗░░██╗░█████╗░███╗░░██╗░██████╗░███╗░░░███╗░█████╗░███╗░░██╗
@@ -152,7 +163,6 @@ def intro_title():
 def main():
     intro_title()
     print(hangman_images[0])
-    print('\n')
     print("   Welcome to Hangman!\n")
     start_options()
 
