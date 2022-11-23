@@ -115,12 +115,10 @@ hangman_intro_image = [
         """
         ___________
         |/        |
-        |         O
-        |        /|\\    Press » S  to start new game
-        |         |     Press » H  for instructions
-        |        / \\
-        |\\
-        ========
+        ||        O
+        ||       /|\\    Press » S  to start new game
+        ||       / \\    Press » H  for instructions
+        ||
         \n
         """,
         """
@@ -159,7 +157,6 @@ def start_options():
         else:
             print(f" You selected {choice}. "
             "Please select S or H to continue ♥")
-            break
 
 
 def intro_title():
