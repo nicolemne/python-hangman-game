@@ -1,6 +1,8 @@
 import random
 
-hangman_images = [
+
+def remaining_lives(lives):
+    hangman_lives = [
         """
         ___________
         |/        |
@@ -111,7 +113,10 @@ hangman_images = [
         """,
         """
         """
-]
+        ]
+    
+    return hangman_lives[lives]
+
 
 hangman_intro_image = [
         """
@@ -128,22 +133,9 @@ hangman_intro_image = [
 ]
 
 
-def random_city():
-    hidden_word = random.choice(cities)
-    print(hidden_word.upper())
-
-
-# Capital cities word bank
-cities = ('dublin reykjavik cardiff edinburgh belfast london oslo stockholm '
-          'helsinki berlin copenhagen amsterdam brussels paris '
-          'luxembourg lisbon madrid rome bern vienna warsaw '
-          'prague bratislava vilnius riga tallinn bucharest budapest '
-          'zagreb sarajevo ljubljana belgrade skopje sofia pristina '
-          'minsk kiev tbilisi athens ankara vaduz podgorica valetta tirana '
-          'nicosia chisinau moscow monaco tokyo seoul bejing kathmandu cairo '
-          'canberra hanoi lima ottawa jerusalem santiago brasilia kingston '
-          'havana wellington pyongyang taipei bangkok manila jakarta '
-          'mogadishu ulaanbataar ').split()
+def get_word():
+    hidden_word = random.choice(open("cities.txt", "r").read().split('\n'))
+    return hidden_word.upper()
 
 
 def intro_title():
@@ -164,15 +156,33 @@ def intro_title():
     """)
 
 
-def start_game():
-    correct_guess = ''
-    wrong_guess = ''
-
+def play_game(hidden_word):
+    secret_word = "_" + " " * len(hidden_word)
+    guessed = False
+    guessed_letters = []
+    lives = 9
+    print("Good luck!")
+    print(remaining_lives(lives))
+    print(secret_word)
     print("\n")
-    print("\n")
 
-    # testing
-    return random_city()
+    while not guessed and lives > 0:
+        guess = input("Please guess a letter: \n").upper()
+        if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters: 
+                print(f"{guess} has already been guessed")
+            elif guess not in hidden_word:
+                print(f"Not quite... {guess} is incorrect.")
+                lives -= 1
+                guessed_letters.append(guess)
+            else:
+                print(f"Nice! {guess} is in the word!")
+                guessed_letters.append(guess)
+        else:
+            print("Not a valid guess.")
+        print(remaining_lives(lives))
+        print(secret_word)
+        print("\n")
 
 
 def start_options():
@@ -224,8 +234,6 @@ def instructions():
 
 def main():
     intro_title()
-    # print(hangman_intro_image[0])
-    # print("   Welcome to Hangman!\n")
     start_options()
 
 
