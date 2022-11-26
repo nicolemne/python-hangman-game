@@ -195,16 +195,10 @@ def hangman_instructions():
           "will reduce a life. You have 7 lives.\n\nHope you have fun!")
     print("\nPlease select S to play ♥")
 
-    options = False
-    while not options:
-        choice = input("\n ").upper()
-        if choice == "S":
-            options = True
-            print("Starting new game...")
-
-        else:
-            print(f" You selected {choice}. "
-                  "Please select S play ♥")
+    main_menu = input("Press enter to return to main"
+                      " menu\n")
+    print("\n")
+    main()
 
 
 def game_difficulty():
