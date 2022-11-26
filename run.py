@@ -151,14 +151,6 @@ def intro_title():
     """)
 
 
-def get_word():
-    """
-    Gets random word form cities.txt
-    """
-    word = random.choice(open("cities.txt", "r").read().split('\n'))
-    return word.upper()
-
-
 def start_options():
     """
     Function to display user choice to either
@@ -186,23 +178,6 @@ def start_options():
         else:
             print(f" You selected {choice}. "
                   "Please select 1, 2 or 3 to continue ♥")
-
-
-def hangman_instructions():
-    """
-    Function to display help instructions for game rules.
-    Starts the game when user enters S
-    """
-    print("\n")
-    print("A name of a city will be hidden behind blank spaces.\n"
-          "You must find the correct city by guessing each letter.\n"
-          "Correct guesses will reveal a letter in the name.\nWrong guesses "
-          "will reduce a life. You have 7 lives.\n\nHope you have fun!\n")
-
-    main_menu = input("Press enter to return to main"
-                      " menu\n")
-    print("\n")
-    main()
 
 
 def game_difficulty():
@@ -234,6 +209,14 @@ def game_difficulty():
             print("\n Please choose E, N or H to select your difficulty")
 
 
+def get_word():
+    """
+    Gets random word form cities.txt
+    """
+    word = random.choice(open("cities.txt", "r").read().split('\n'))
+    return word.upper()
+
+
 def play_game(word, difficulty_lives):
     secret_word = "_" * len(word)
     game_over = False
@@ -249,7 +232,7 @@ def play_game(word, difficulty_lives):
         try:
             if len(input_guess) > 1:
                 raise ValueError(
-                    f"You can only guess one letter at the time. "
+                    f"\nYou can only guess one letter at the time. "
                     f"You guessed: {len(input_guess)}."
                 )
             elif not input_guess.isalpha():
@@ -280,8 +263,8 @@ def play_game(word, difficulty_lives):
                     if "_" not in secret_word:
                         game_over = True
         
-        except ValueError as e:
-            print(f"{e}.\n Please try again.\n")
+        except ValueError as input_error:
+            print(f"{input_error}.\nPlease try again.\n")
             continue
 
         print(hangman_remaining_lives(lives))
@@ -300,12 +283,28 @@ def play_game(word, difficulty_lives):
         print(f"The correct word was: {word}")
 
 
+def hangman_instructions():
+    """
+    Function to display help instructions for game rules.
+    Starts the game when user enters S
+    """
+    print("\n")
+    print("A name of a city will be hidden behind blank spaces.\n"
+          "You must find the correct city by guessing each letter.\n"
+          "Correct guesses will reveal a letter in the name.\nWrong guesses "
+          "will reduce a life.\n\nHope you have fun!\n")
+
+    main_menu = input("Press enter to return to main"
+                      " menu\n")
+    print("\n")
+    main()
+
+
 def main():
     """
     Start the application
     """
     intro_title()
-    start_options()
     difficulty = start_options()
     if difficulty == "default":
         difficulty_lives = 7
