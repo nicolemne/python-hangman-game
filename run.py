@@ -1,5 +1,4 @@
 import random
-import os
 
 
 def hangman_remaining_lives(lives):
@@ -124,9 +123,9 @@ hangman_intro_image = [
         ___________
         |/        |
         ||        O
-        ||       /|\\    Press » S  to start new game
-        ||       / \\    Press » H  for instructions
-        ||
+        ||       /|\\    Press » 1  to start new game
+        ||       / \\    Press » 2  for instructions
+        ||               Press » 3  to select difficulty
         \n
         """,
         """
@@ -163,20 +162,20 @@ def get_word():
 def start_options():
     """
     Function to display user choice to either
-    start game or view instructions
+    start game, view instructions or select difficulty
     (User choice is displayed in the hangman_intro_image)
     """
     print(hangman_intro_image[0])
     
-    options = False
-    while not options:
+    start = False
+    while not start:
         choice = input("\n ").upper()
-        if choice == "S":
-            options = True
+        if choice == "1":
+            start = True
             print("  Starting new game...")
 
         elif choice == "H":
-            options = True
+            start = True
             hangman_instructions()
 
         else:
@@ -208,11 +207,43 @@ def hangman_instructions():
                   "Please select S play ♥")
 
 
-def play_game(hangman_word):
-    secret_word = "_" + " " * len(word)
+def game_difficulty():
+    """
+    Function to select difficulty
+    """
+    print("\n")
+    print("Please select a difficulty\n")
+    print("Press E for Easy")
+    print("Press N for Normal")
+    print("Press H for Hard")
+    
+    difficulty = False
+    while not difficulty:
+        options = input("\n ").upper()
+        if options == "E":
+            difficulty = True
+            difficulty_lives = 10
+            return difficulty_lives
+        
+        elif options == "N":
+            difficulty = True
+            difficulty_lives = 7
+            return difficulty_lives
+        
+        elif options == "H":
+            difficulty = True
+            difficulty_lives = 5
+            return difficulty_lives
+
+        else: 
+            print("\n Please choose E, N or H to select your difficulty")
+
+
+def play_game(hangman_word, difficulty_lives):
+    secret_word = "_" + " " * len(hangman_word)
     game_over = False
     guesses = []
-    lives = 9
+    lives = difficulty_lives
     print("Good luck!")
     print(f"Remaining Lives: {lives}\n")
     print("Your city to guess: " + " ".join(secret_word) + "\n")
@@ -236,7 +267,7 @@ def play_game(hangman_word):
                     raise ValueError(
                         f"You have already guessed {input_guess}."
                         )
-                elif input_guess not in word:
+                elif input_guess not in hangman_word:
                     print(f"Sorry, wrong guess... {input_guess}"
                           "is not in the word")
                     print("You lost a life. Better luck next time!")
