@@ -12,7 +12,7 @@ def hangman_remaining_lives(lives):
         |        / \\
         |\\
         ========
-        \n    ✝ ✝ ✝ ✝ ✝ ✝ ✝ ✝ ✝
+        \n
         """,
         """
         ___________
@@ -23,7 +23,7 @@ def hangman_remaining_lives(lives):
         |        /
         |\\
         ========
-        \n    ♥ ✝ ✝ ✝ ✝ ✝ ✝ ✝
+        \n
         """,
         """
         __________
@@ -34,7 +34,7 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n    ♥ ♥ ✝ ✝ ✝ ✝ ✝ ✝ ✝
+        \n
         """,
         """
         __________
@@ -45,7 +45,7 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n    ♥ ♥ ♥ ✝ ✝ ✝ ✝ ✝ ✝
+        \n
         """,
         """
         __________
@@ -56,7 +56,7 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n    ♥ ♥ ♥ ♥ ✝ ✝ ✝ ✝ ✝
+        \n
         """,
         """
         __________
@@ -67,7 +67,7 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n    ♥ ♥ ♥ ♥ ♥ ✝ ✝ ✝ ✝
+        \n
         """,
         """
         __________
@@ -78,7 +78,7 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n    ♥ ♥ ♥ ♥ ♥ ♥ ✝ ✝ ✝
+        \n
         """,
         """
         __________
@@ -89,7 +89,7 @@ def hangman_remaining_lives(lives):
         |
         |
         ========
-        \n    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ✝ ✝
+        \n
         """,
         """
         |/
@@ -99,7 +99,7 @@ def hangman_remaining_lives(lives):
         |
         |
         ========
-        \n    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ✝
+        \n
         """,
 
         """
@@ -109,7 +109,7 @@ def hangman_remaining_lives(lives):
         |
         |
         ========
-        \n    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥
+        \n
         """,
         """
         """
@@ -125,7 +125,7 @@ hangman_intro_image = [
         ||        O
         ||       /|\\    Press » 1  to start new game
         ||       / \\    Press » 2  for instructions
-        ||               Press » 3  to select difficulty
+        ||              Press » 3  to select difficulty
         \n
         """,
         """
@@ -169,18 +169,23 @@ def start_options():
     
     start = False
     while not start:
-        choice = input("\n ").upper()
+        choice = input("\n ")
         if choice == "1":
             start = True
-            print("  Starting new game...")
+            difficulty = "default"
+            return difficulty
 
-        elif choice == "H":
+        elif choice == "2":
             start = True
             hangman_instructions()
+        
+        elif choice == "3":
+            start = True
+            game_difficulty()
 
         else:
             print(f" You selected {choice}. "
-                  "Please select S or H to continue ♥")
+                  "Please select 1, 2 or 3 to continue ♥")
 
 
 def hangman_instructions():
@@ -192,8 +197,7 @@ def hangman_instructions():
     print("A name of a city will be hidden behind blank spaces.\n"
           "You must find the correct city by guessing each letter.\n"
           "Correct guesses will reveal a letter in the name.\nWrong guesses "
-          "will reduce a life. You have 7 lives.\n\nHope you have fun!")
-    print("\nPlease select S to play ♥")
+          "will reduce a life. You have 7 lives.\n\nHope you have fun!\n")
 
     main_menu = input("Press enter to return to main"
                       " menu\n")
@@ -218,23 +222,20 @@ def game_difficulty():
             difficulty = True
             difficulty_lives = 10
             return difficulty_lives
-        
         elif options == "N":
             difficulty = True
             difficulty_lives = 7
             return difficulty_lives
-        
         elif options == "H":
             difficulty = True
             difficulty_lives = 5
             return difficulty_lives
-
-        else: 
+        else:
             print("\n Please choose E, N or H to select your difficulty")
 
 
-def play_game(hangman_word, difficulty_lives):
-    secret_word = "_" + " " * len(hangman_word)
+def play_game(word, difficulty_lives):
+    secret_word = "_" * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
@@ -246,14 +247,14 @@ def play_game(hangman_word, difficulty_lives):
     while not game_over and lives > 0:
         input_guess = input("Please guess a letter: \n").upper()
         try:
-            if len(input_guess) > 1: 
+            if len(input_guess) > 1:
                 raise ValueError(
-                    f"Oops! You can only guess one letter at the time. "
+                    f"You can only guess one letter at the time. "
                     f"You guessed: {len(input_guess)}."
                 )
             elif not input_guess.isalpha():
                 raise ValueError(
-                    f"Oops! Only letters allowed."
+                    f"Only letters allowed."
                     f"You guessed: {len(input_guess)}."
                 )
             elif len(input_guess) == 1 and input_guess.isalpha():
@@ -261,9 +262,9 @@ def play_game(hangman_word, difficulty_lives):
                     raise ValueError(
                         f"You have already guessed {input_guess}."
                         )
-                elif input_guess not in hangman_word:
+                elif input_guess not in word:
                     print(f"Sorry, wrong guess... {input_guess}"
-                          "is not in the word")
+                          " is not in the word")
                     print("You lost a life. Better luck next time!")
                     guesses.append(input_guess)
                     lives -= 1
@@ -271,7 +272,7 @@ def play_game(hangman_word, difficulty_lives):
                     print(f"You found a letter! {input_guess} is correct. GG!")
                     guesses.append(input_guess)
                     guessed_word_list = list(secret_word)
-                    indices = [i for i, letter in enumerate(input_guess)
+                    indices = [i for i, letter in enumerate(word)
                                if letter == input_guess]
                     for index in indices:
                         guessed_word_list[index] = input_guess
@@ -287,22 +288,31 @@ def play_game(hangman_word, difficulty_lives):
 
         if lives > 0:
             print(f"Remaining Lives: {lives}\n")
-            print(f"Your city to guess: " + " ".join(secret_word) + "\n")
-            print(" Your guesses: " + ", ".join(sorted(input_guess)) + "\n")
+            print(" Your city to guess: " + " ".join(secret_word) + "\n")
+            print(" Your guesses: " + ", ".join(sorted(guesses)) + "\n")
 
     if game_over:
-        print(f"Congrats, you found the secret word: {secret_word}!")
+        print(f"Congrats, you found the secret word: {word}!")
     
     else:
-        print(f"Oh shoot! You're out of lives.")
+        print("Oh shoot! You're out of lives.")
         print("Game over.\n\n")
-        print(f"The correct word was: {secret_word}")
+        print(f"The correct word was: {word}")
 
 
 def main():
+    """
+    Start the application
+    """
     intro_title()
     start_options()
+    difficulty = start_options()
+    if difficulty == "default":
+        difficulty_lives = 7
+    else:
+        difficulty_lives = game_difficulty()
     hangman_word = get_word()
+    play_game(hangman_word, difficulty_lives)
 
 
 main()
