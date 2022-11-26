@@ -2,6 +2,9 @@ import random
 
 
 def hangman_remaining_lives(lives):
+    """
+    Hangman images representing lives left
+    """
     hangman_lives = [
         """
         ___________
@@ -218,11 +221,13 @@ def get_word():
 
 
 def play_game(word, difficulty_lives):
+    """
+    Starts the game
+    """
     secret_word = "_" * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
-    print("Good luck!")
     print(f"Remaining Lives: {lives}\n")
     print("Your city to guess: " + " ".join(secret_word) + "\n")
     print("\n")
@@ -262,7 +267,6 @@ def play_game(word, difficulty_lives):
                         secret_word = "".join(guessed_word_list)
                     if "_" not in secret_word:
                         game_over = True
-        
         except ValueError as input_error:
             print(f"{input_error}.\nPlease try again.\n")
             continue
@@ -276,11 +280,12 @@ def play_game(word, difficulty_lives):
 
     if game_over:
         print(f"Congrats, you found the secret word: {word}!")
-    
     else:
         print("Oh shoot! You're out of lives.")
         print("Game over.\n\n")
         print(f"The correct word was: {word}")
+
+    restart_game(difficulty_lives)
 
 
 def hangman_instructions():
@@ -298,6 +303,33 @@ def hangman_instructions():
                       " menu\n")
     print("\n")
     main()
+
+
+def restart_game(difficulty_lives):
+    """
+    User can choose to start a new game immediately 
+    or return to main menu
+    """
+    reset_game = False
+    while not reset_game:
+        restart = input("Would you like to play anothe game? Y/N\n").upper()
+        try:
+            if restart == "Y":
+                reset_game = True
+                hangman_word = get_word()
+                play_game(hangman_word, difficulty_lives)
+
+            elif restart == "N":
+                reset_game = True
+                print("\n")
+                main()
+
+            else:
+                raise ValueError(
+                    f"You have to enter Y or N. You entered {restart}"
+                )
+        except ValueError as input_error:
+            print(f"\n{input_error} is invalid. Please try again.\n")        
 
 
 def main():
