@@ -6,7 +6,7 @@ You can play the game on three difficulties. Either Easy with 10 lives, Normal w
 
 The game is presented with some visual imagery when you first start up the program, and have a consistent design throughout the whole program.
 
-View the live site [here](https://project-hangman3.herokuapp.com/)
+View the live site [here](https://project-hangman3.herokuapp.com/).
 
 ---
 
@@ -52,20 +52,20 @@ View the live site [here](https://project-hangman3.herokuapp.com/)
 
 #### Client goals visitors
 
-
+My goals for this application is to be fun, accessible and smooth running gameplay.
 
 #### First-time visitors 
 
-
+I want my first time visitors to be able to quickly navigate throughout the start menu to choose difficulty, read instructions or go straight into a new game. The design I've chosen is for the program to look aesthetically pleasing and fun, which will encourage the user to keep playing.
 
 #### Returning visitors 
 
-
+My hope is for a first time user to have a great experience playing this game, so that they will return to play again. 
 
 ## Design
 
 ### Finished site
-![Website](assets/readme/pp2-website.jpg)
+![App](assets/readme/start.png)
 
 
 ### Imagery
@@ -73,8 +73,11 @@ View the live site [here](https://project-hangman3.herokuapp.com/)
 ![Hangman](assets/readme/letsplay.png) 
 ![Hangman](assets/readme/hangman.png) 
 
-### Wireframes
+### Planning
 
+In order to plan this project I wrote notes of every logical step in a Google document, to help me figure out key points of the applicaton.
+
+![Logic](assets/readme/logic.png) 
 
 ## Features
 
@@ -82,10 +85,28 @@ View the live site [here](https://project-hangman3.herokuapp.com/)
 ![Hangman](assets/readme/start.png)
 
 #### Instructions
-![Hangman](assets/readme/instructions.png)
+![Instructions](assets/readme/instructions.png)
 
-#### Game Difficulty
-![Hangman](assets/readme/set-difficulty.png)
+#### Set Difficulty
+![Difficulty](assets/readme/set-difficulty.png)
+
+#### Win
+![Win](assets/readme/win.png)
+
+#### Lose
+![Hangman](assets/readme/lose.png)
+
+#### Check numbers
+![Numbers](assets/readme/number-guess.png)
+
+#### More than one character
+![Characters](assets/readme/characters.png)
+
+#### Previous guesses
+![Guesses](assets/readme/all-guesses.png)
+
+#### Found correct letter
+![Correct](assets/readme/found-letter.png)
 
 ### Future Implementations
 
@@ -105,10 +126,7 @@ Please see # Media
 
 ### Languages Used
 
-The language I've used is Python3.
-
-### Frameworks, Libraries & Programs Used
-
+The language I've used is Python.
 
 ## Deployment & Local Development
 
@@ -148,6 +166,8 @@ Use git clone + the URL in your terminal, or unpack the ZIP containing the proje
 
 ### PEP8 Validator
 
+No errors found. 
+![No-Errors](assets/readme/no-errors.png)
 
 ### Known bugs
 
@@ -181,9 +201,9 @@ Some bugs I've encountered and fixed:
 
 I have used the following student's projects to help me structure my program and build my code, as well as a video.
 
-[Gibbo101](https://github.com/gibbo101/hangman)
-[TaraHelberg](https://github.com/TaraHelberg/Hang-Hangman)
-[How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w)
+- [Gibbo101](https://github.com/gibbo101/hangman)
+- [TaraHelberg](https://github.com/TaraHelberg/Hang-Hangman)
+- [How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w)
 
 ### Content
 
@@ -209,5 +229,4 @@ I would like to thank and acknowledge the following people, who have shown inval
 - Dan Ford, boyfriend and biggest supporter.
 - Mitko Bachvarov, my mentor at Code Institute, for the great help and support with my project. 
 - Joseph Doble, for providing easy-to-understand explanations and help with my questions.
-- Emelie, a fellow student at Code Institute, whom I've also had great support from.
 - Kera Cudmore, for this README template.

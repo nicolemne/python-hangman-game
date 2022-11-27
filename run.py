@@ -107,7 +107,7 @@ def hangman_remaining_lives(lives):
         """
         """
         ]
-    
+
     return hangman_lives[lives]
 
 
@@ -151,7 +151,7 @@ def start_options():
     (User choice is displayed in the hangman_intro_image)
     """
     print(hangman_intro_image[0])
-    
+
     start = False
 
     while not start:
@@ -164,7 +164,7 @@ def start_options():
         elif choice == "2":
             start = True
             hangman_instructions()
-        
+
         elif choice == "3":
             start = True
 
@@ -185,7 +185,7 @@ def game_difficulty():
     print("Press E for Easy")
     print("Press N for Normal")
     print("Press H for Hard")
-    
+
     difficulty = False
 
     while not difficulty:
@@ -194,7 +194,7 @@ def game_difficulty():
             difficulty = True
             difficulty_lives = 10
             return difficulty_lives
-            
+
         elif options == "N":
             difficulty = True
             difficulty_lives = 7
@@ -242,7 +242,7 @@ def play_game(word, difficulty_lives):
                     f" You guessed: {input_guess}"
                 )
             elif len(input_guess) == 1 and input_guess.isalpha():
-                if input_guess in guesses: 
+                if input_guess in guesses:
                     raise ValueError(
                         f"\nYou have already guessed {input_guess}"
                         )
@@ -325,7 +325,7 @@ def restart_game(difficulty_lives):
                     f"You have to enter Y or N. You entered {restart}"
                 )
         except ValueError as input_error:
-            print(f"\n{input_error} is invalid. Please try again.\n")        
+            print(f"\n{input_error} is invalid. Please try again.\n")
 
 
 def main():
