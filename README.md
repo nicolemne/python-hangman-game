@@ -1,5 +1,11 @@
 # Hangman
 
+For my third project, written solely in Python, I decided to do a Hangman game. The main game function is to guess each letter in a hidden word, and in this project I've chosen to go with capital cities. For each correct guess a letter will be revealed.
+
+You can play the game on three difficulties. Either Easy with 10 lives, Normal with 7 lives, and Hard with 5 lives. The default is Normal difficulty. 
+
+The game is presented with some visual imagery when you first start up the program, and have a consistent design throughout the whole program.
+
 View the live site [here](https://project-hangman3.herokuapp.com/)
 
 ---
@@ -64,16 +70,11 @@ View the live site [here](https://project-hangman3.herokuapp.com/)
 
 ### Imagery
 
-I wanted to have a background image with Naruto (The main character of the Manga and Anime series 'Naruto'). I had to cut out the emblem displayed inside the original image using Paint, to have a full black background to have the elements on top of. 
-
-#### Original Background Image
-![Original](assets/readme/naruto-original.jpg)
+![Hangman](assets/readme/letsplay.png) 
+![Hangman](assets/readme/hangman.png) 
 
 ### Wireframes
 
-The wireframes were created using Balsamiq. I wanted to have a simple layout with the game buttons centred in the middle of the page, and the scores and reset button close to the centre for easy view. The "How to Play" button is a little bit more discrete and I chose to have it in the upper left corner. 
-
-![Wireframes](assets/readme/wireframes.png)
 
 ## Features
 
@@ -154,27 +155,25 @@ No known bugs.
 
 ### Solved Bugs
 
-I've encountered several bugs on the journey of making this website, and most of them I've corrected by seeking help online or from my mentor Mitko. 
-
 Some bugs I've encountered and fixed: 
 
-+ Background Image
-  + Description: Background image placement
-  + Expected behaviour: Cover full screen
-  + Actual behaviour: Not showing up
-  + Fix: background-position: center; and background-size: cover;
++ Select difficulty
+  + Description: The menu for selecting difficulty appeared twice
+  + Expected behaviour: Choosing a difficulty and go straight into the game
+  + Actual behaviour: The menu for selecting difficulty appeared again after you had chosen a difficulty, and did not go straight into the play_game function
+  + Fix: Remove second function call inside the game_difficulty function
 
-+ Script not running
-  + Description: Javascript not working
-  + Expected behaviour: Run in the browser to play game
-  + Actual behaviour: Nothing happening
-  + Fix: Correct variable names that were written wrong
++ Only one blank (hidden) letter
+  + Description: Only one blank letter appeared
+  + Expected behaviour: Display a blank space or underscore for each letter in the word
+  + Actual behaviour: Only showing the first letter, the rest removed
+  + Fix: Check for correct word instead of guessed letters.
 
-+ Wrong game message
-  + Description: "Starting New Game" randomly appearing
-  + Expected behaviour: Only shown when resetting scores
-  + Actual behaviour: Randomly appearing in the game message announcer
-  + Fix: Set the correct name of the variable in winCombos
++ Launching default
+  + Description: Launching default difficulty instead of chosen difficulty from the game_difficulty function
+  + Expected behaviour: Start game with selected difficulty level
+  + Actual behaviour: Always launching game in default level
+  + Fix: Removed call function play_game from inside start_options
 
 ## Credits
 
