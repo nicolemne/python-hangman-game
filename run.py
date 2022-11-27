@@ -163,6 +163,7 @@ def start_options():
     print(hangman_intro_image[0])
     
     start = False
+
     while not start:
         choice = input("\n ")
         if choice == "1":
@@ -176,7 +177,6 @@ def start_options():
         
         elif choice == "3":
             start = True
-            game_difficulty()
 
         else:
             print(f" You selected {choice}. "
@@ -194,20 +194,24 @@ def game_difficulty():
     print("Press H for Hard")
     
     difficulty = False
+
     while not difficulty:
         options = input("\n ").upper()
         if options == "E":
             difficulty = True
             difficulty_lives = 10
             return difficulty_lives
+            
         elif options == "N":
             difficulty = True
             difficulty_lives = 7
             return difficulty_lives
+
         elif options == "H":
             difficulty = True
             difficulty_lives = 5
             return difficulty_lives
+
         else:
             print("\n Please choose E, N or H to select your difficulty")
 
@@ -229,7 +233,7 @@ def play_game(word, difficulty_lives):
     guesses = []
     lives = difficulty_lives
     print(f"Remaining Lives: {lives}\n")
-    print("Your city to guess: " + " ".join(secret_word) + "\n")
+    print("▹ Your city to guess: " + " ".join(secret_word) + "\n")
     print("\n")
 
     while not game_over and lives > 0:
@@ -238,26 +242,27 @@ def play_game(word, difficulty_lives):
             if len(input_guess) > 1:
                 raise ValueError(
                     f"\nYou can only guess one letter at the time. "
-                    f"You guessed: {len(input_guess)}."
+                    f"You guessed: {len(input_guess)}"
                 )
             elif not input_guess.isalpha():
                 raise ValueError(
-                    f"Only letters allowed."
-                    f"You guessed: {len(input_guess)}."
+                    f"\nOnly letters allowed."
+                    f" You guessed: {len(input_guess)}"
                 )
             elif len(input_guess) == 1 and input_guess.isalpha():
                 if input_guess in guesses: 
                     raise ValueError(
-                        f"You have already guessed {input_guess}."
+                        f"You have already guessed {input_guess}"
                         )
                 elif input_guess not in word:
-                    print(f"Sorry, wrong guess... {input_guess}"
+                    print(f"\nSorry, wrong guess... {input_guess}"
                           " is not in the word")
                     print("You lost a life. Better luck next time!")
                     guesses.append(input_guess)
                     lives -= 1
                 else:
-                    print(f"You found a letter! {input_guess} is correct. GG!")
+                    print(f"\nYou found a letter! {input_guess} is correct."
+                          " GG!")
                     guesses.append(input_guess)
                     guessed_word_list = list(secret_word)
                     indices = [i for i, letter in enumerate(word)
@@ -275,8 +280,8 @@ def play_game(word, difficulty_lives):
 
         if lives > 0:
             print(f"Remaining Lives: {lives}\n")
-            print(" Your city to guess: " + " ".join(secret_word) + "\n")
-            print(" Your guesses: " + ", ".join(sorted(guesses)) + "\n")
+            print("▹ Your city to guess: " + " ".join(secret_word) + "\n")
+            print("▹ Your guesses: " + ", ".join(sorted(guesses)) + "\n")
 
     if game_over:
         print(f"Congrats, you found the secret word: {word}!")
@@ -294,13 +299,12 @@ def hangman_instructions():
     Starts the game when user enters S
     """
     print("\n")
-    print("A name of a city will be hidden behind blank spaces.\n"
-          "You must find the correct city by guessing each letter.\n"
+    print("A name of a city will be hidden behind blank spaces and\n"
+          "you must find the correct city by guessing each letter.\n"
           "Correct guesses will reveal a letter in the name.\nWrong guesses "
           "will reduce a life.\n\nHope you have fun!\n")
 
-    main_menu = input("Press enter to return to main"
-                      " menu\n")
+    input("Press enter to return to main menu\n")
     print("\n")
     main()
 
@@ -312,7 +316,7 @@ def restart_game(difficulty_lives):
     """
     reset_game = False
     while not reset_game:
-        restart = input("Would you like to play anothe game? Y/N\n").upper()
+        restart = input("Would you like to play another game? Y/N\n").upper()
         try:
             if restart == "Y":
                 reset_game = True
