@@ -146,7 +146,7 @@ def intro_title():
 
 def start_options():
     """
-    Function to display user choice to either
+    Startup view, function to display user choice to either
     start game, view instructions or select difficulty
     (User choice is displayed in the hangman_intro_image)
     """
@@ -175,7 +175,10 @@ def start_options():
 
 def game_difficulty():
     """
-    Function to select difficulty
+    Function to select difficulty and return values to main.
+    E for easy
+    N for normal
+    H for hard
     """
     print("\n")
     print("Please select a difficulty\n")
@@ -216,14 +219,14 @@ def get_word():
 
 def play_game(word, difficulty_lives):
     """
-    Starts the game
+    Starts the game and runs all gameplay logic
     """
     secret_word = "░" * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
     print(f"\nRemaining Lives: {lives}\n")
-    print("▹ Your city to guess: " + " ".join(secret_word) + "\n")
+    print("★  Your city to guess: " + " ".join(secret_word) + "\n")
 
     while not game_over and lives > 0:
         input_guess = input("Please guess a letter: \n").upper()
@@ -269,13 +272,13 @@ def play_game(word, difficulty_lives):
 
         if lives > 0:
             print(f"\nRemaining Lives: {lives}\n")
-            print("▹ Your city to guess: " + " ".join(secret_word) + "\n")
-            print("▹ Your guesses: " + ", ".join(guesses) + "\n")
+            print("★  Your city to guess: " + " ".join(secret_word) + "\n")
+            print("★  Your guesses: " + ", ".join(guesses) + "\n")
 
     if game_over:
-        print(f"Congrats, you found the secret word: {word}!")
+        print(f"Congrats! You found the secret word: {word}")
     else:
-        print("Oh shoot! You're out of lives.")
+        print("Oh shoot! You're out of lives ✟")
         print("Game over.\n\n")
         print(f"The correct word was: {word}")
 
@@ -284,8 +287,8 @@ def play_game(word, difficulty_lives):
 
 def hangman_instructions():
     """
-    Function to display help instructions for game rules.
-    Starts the game when user enters S
+    Function to display game rules.
+    Allows user to go back to main menu by pressing enter.
     """
     print("\n")
     print("A name of a city will be hidden behind blank spaces and\n"
@@ -300,8 +303,8 @@ def hangman_instructions():
 
 def restart_game(difficulty_lives):
     """
-    User can choose to start a new game immediately 
-    or return to main menu
+    User can choose to start a new game immediately
+    or return to main menu by pressing enter
     """
     reset_game = False
     while not reset_game:
@@ -327,7 +330,7 @@ def restart_game(difficulty_lives):
 
 def main():
     """
-    Start the application
+    Start the application and run the main functions
     """
     intro_title()
     difficulty = start_options()
