@@ -7,6 +7,7 @@ You can play the game on three difficulties. Either Easy with 10 lives, Normal w
 The game is presented with some visual imagery when you first start up the program, and have a consistent design throughout the whole program.
 
 View the live site [here](https://project-hangman3.herokuapp.com/).
+![Play-Hangman](assets/readme/letsplayhangman.png)
 
 ---
 
