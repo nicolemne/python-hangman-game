@@ -278,7 +278,7 @@ def play_game(word, difficulty_lives):
     if game_over:
         print(f"Congrats! You found the secret word: {word}")
     else:
-        print("Oh shoot! You're out of lives ✟")
+        print("Oh shoot! You've run out of lives ✟")
         print("Game over.\n\n")
         print(f"The correct word was: {word}")
 

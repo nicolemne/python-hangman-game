@@ -1,31 +1,214 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman
 
-Welcome Nicole MN.E,
+View the live site [here](https://project-hangman3.herokuapp.com/)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+---
 
-## Reminders
+## CONTENTS
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+* [User Experience](#user-experience-ux)
+  * [User Stories](#user-stories)
 
-## Creating the Heroku app
+* [Design](#design)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery](#imagery)
+  * [Wireframes](#wireframes)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+* [Features](#features)
+  * [General Features on Each Page](#general-features-on-each-page)
+  * [Future Implementations](#future-implementations)
+  * [Accessibility](#accessibility)
 
-1. `heroku/python`
-2. `heroku/nodejs`
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* [Deployment & Local Development](#deployment--local-development)
+  * [Deployment](#deployment)
+  * [Local Development](#local-development)
+    * [How to Fork](#how-to-fork)
+    * [How to Clone](#how-to-clone)
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* [Testing](#testing)
 
-Connect your GitHub repository and deploy as normal.
+* [Credits](#credits)
+  * [Code Used](#code-used)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
 
-## Constraints
+---
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## User Experience (UX)
 
------
-Happy coding!
+### User Stories
+
+#### Client goals visitors
+
+
+
+#### First-time visitors 
+
+
+
+#### Returning visitors 
+
+
+
+## Design
+
+### Finished site
+![Website](assets/readme/pp2-website.jpg)
+
+
+### Imagery
+
+I wanted to have a background image with Naruto (The main character of the Manga and Anime series 'Naruto'). I had to cut out the emblem displayed inside the original image using Paint, to have a full black background to have the elements on top of. 
+
+#### Original Background Image
+![Original](assets/readme/naruto-original.jpg)
+
+### Wireframes
+
+The wireframes were created using Balsamiq. I wanted to have a simple layout with the game buttons centred in the middle of the page, and the scores and reset button close to the centre for easy view. The "How to Play" button is a little bit more discrete and I chose to have it in the upper left corner. 
+
+![Wireframes](assets/readme/wireframes.png)
+
+## Features
+
+#### Start-up
+![Hangman](assets/readme/start.png)
+
+#### Instructions
+![Hangman](assets/readme/instructions.png)
+
+#### Game Difficulty
+![Hangman](assets/readme/set-difficulty.png)
+
+### Future Implementations
+
+I would like to add a function to allow the user to guess a full word (or city in this program). Right now it is currently only possible to guess one letter at the time. 
+
+### Accessibility
+
+I have tried my best to be mindful of accessibility, and the steps I've taken for this are the following:
+
+- Easier readability by using a good amount of spaces in the prints. 
+- Symbols and "imagery" that has good contrast. 
+
+
+## Technologies Used
+
+Please see # Media
+
+### Languages Used
+
+The language I've used is Python3.
+
+### Frameworks, Libraries & Programs Used
+
+
+## Deployment & Local Development
+
+### Deployment
+
+#### Heroku
+
+The project was deployed to GitHub Pages using the following steps...
+
+1. Login to Heroku and go to your Apps. Select the app/project you wish to deploy.
+2. Click on the "Deploy" section to view alternatives.
+3. Inside the "Deploy" section, go to "Deployment method".
+4. Connect your GitHub account to your Heroku project. 
+5. Choose the project you wish to deploy in the "App connected to GitHub" section below.
+6. Enable Automatic deploys.
+
+### Local Development
+
+#### How to Fork
+
+To fork my repository:
+
+1. Login (or sign up) to GitHub.
+2. Go to the repository for this project [here](https://github.com/nicolemne/project-portfolio-3)
+3. Click the Fork button in the top right corner.
+
+#### How to Clone
+
+If you wish to clone my project, please see the following steps below:
+
+Navigate to Github: https://github.com/nicolemne/project-portfolio-3
+Select the 'Clone' button
+Copy the URL or download it as a ZIP file
+Use git clone + the URL in your terminal, or unpack the ZIP containing the project
+
+## Testing
+
+### PEP8 Validator
+
+
+### Known bugs
+
+No known bugs.
+
+### Solved Bugs
+
+I've encountered several bugs on the journey of making this website, and most of them I've corrected by seeking help online or from my mentor Mitko. 
+
+Some bugs I've encountered and fixed: 
+
++ Background Image
+  + Description: Background image placement
+  + Expected behaviour: Cover full screen
+  + Actual behaviour: Not showing up
+  + Fix: background-position: center; and background-size: cover;
+
++ Script not running
+  + Description: Javascript not working
+  + Expected behaviour: Run in the browser to play game
+  + Actual behaviour: Nothing happening
+  + Fix: Correct variable names that were written wrong
+
++ Wrong game message
+  + Description: "Starting New Game" randomly appearing
+  + Expected behaviour: Only shown when resetting scores
+  + Actual behaviour: Randomly appearing in the game message announcer
+  + Fix: Set the correct name of the variable in winCombos
+
+## Credits
+
+### Code Used
+
+I have used the following student's projects to help me structure my program and build my code, as well as a video.
+
+[Gibbo101](https://github.com/gibbo101/hangman)
+[TaraHelberg](https://github.com/TaraHelberg/Hang-Hangman)
+[How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w)
+
+### Content
+
+I have written all content on this website myself, although I've used a lot of help from other projects, please see section above in # Code used.
+
+###  Media
+
+[CoolSymbol](https://coolsymbol.com/) was used to get special characters to style the program. 
+- » in the start up menu 
+- ░ for blank spaces
+- ★ before the lives and guesses
+- ✟ when you've run out of lives
+
+[fsymbol](https://fsymbols.com/generators/carty/) - To generate the "Let's play..." and "Hangman" text.
+
+[Gibbo101](https://github.com/gibbo101/hangman) - To get the hangman imagery that changes with each life left
+
+  
+###  Acknowledgments
+
+I would like to thank and acknowledge the following people, who have shown invaluable support throughout my second project:
+
+- Dan Ford, boyfriend and biggest supporter.
+- Mitko Bachvarov, my mentor at Code Institute, for the great help and support with my project. 
+- Joseph Doble, for providing easy-to-understand explanations and help with my questions.
+- Emelie, a fellow student at Code Institute, whom I've also had great support from.
+- Kera Cudmore, for this README template.
