@@ -15,7 +15,6 @@ def hangman_remaining_lives(lives):
         |        / \\
         |\\
         ========
-        \n
         """,
         """
         ___________
@@ -26,7 +25,6 @@ def hangman_remaining_lives(lives):
         |        /
         |\\
         ========
-        \n
         """,
         """
         __________
@@ -37,7 +35,6 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n
         """,
         """
         __________
@@ -48,7 +45,6 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n
         """,
         """
         __________
@@ -59,7 +55,6 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n
         """,
         """
         __________
@@ -70,7 +65,6 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n
         """,
         """
         __________
@@ -81,7 +75,6 @@ def hangman_remaining_lives(lives):
         |
         |\\
         ========
-        \n
         """,
         """
         __________
@@ -92,7 +85,6 @@ def hangman_remaining_lives(lives):
         |
         |
         ========
-        \n
         """,
         """
         |/
@@ -102,7 +94,6 @@ def hangman_remaining_lives(lives):
         |
         |
         ========
-        \n
         """,
 
         """
@@ -112,7 +103,6 @@ def hangman_remaining_lives(lives):
         |
         |
         ========
-        \n
         """,
         """
         """
@@ -228,13 +218,12 @@ def play_game(word, difficulty_lives):
     """
     Starts the game
     """
-    secret_word = "_" * len(word)
+    secret_word = "░" * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
-    print(f"Remaining Lives: {lives}\n")
+    print(f"\nRemaining Lives: {lives}\n")
     print("▹ Your city to guess: " + " ".join(secret_word) + "\n")
-    print("\n")
 
     while not game_over and lives > 0:
         input_guess = input("Please guess a letter: \n").upper()
@@ -247,12 +236,12 @@ def play_game(word, difficulty_lives):
             elif not input_guess.isalpha():
                 raise ValueError(
                     f"\nOnly letters allowed."
-                    f" You guessed: {len(input_guess)}"
+                    f" You guessed: {input_guess}"
                 )
             elif len(input_guess) == 1 and input_guess.isalpha():
                 if input_guess in guesses: 
                     raise ValueError(
-                        f"You have already guessed {input_guess}"
+                        f"\nYou have already guessed {input_guess}"
                         )
                 elif input_guess not in word:
                     print(f"\nSorry, wrong guess... {input_guess}"
@@ -270,7 +259,7 @@ def play_game(word, difficulty_lives):
                     for index in indices:
                         guessed_word_list[index] = input_guess
                         secret_word = "".join(guessed_word_list)
-                    if "_" not in secret_word:
+                    if "░" not in secret_word:
                         game_over = True
         except ValueError as input_error:
             print(f"{input_error}.\nPlease try again.\n")
@@ -279,9 +268,9 @@ def play_game(word, difficulty_lives):
         print(hangman_remaining_lives(lives))
 
         if lives > 0:
-            print(f"Remaining Lives: {lives}\n")
+            print(f"\nRemaining Lives: {lives}\n")
             print("▹ Your city to guess: " + " ".join(secret_word) + "\n")
-            print("▹ Your guesses: " + ", ".join(sorted(guesses)) + "\n")
+            print("▹ Your guesses: " + ", ".join(guesses) + "\n")
 
     if game_over:
         print(f"Congrats, you found the secret word: {word}!")
@@ -316,7 +305,7 @@ def restart_game(difficulty_lives):
     """
     reset_game = False
     while not reset_game:
-        restart = input("Would you like to play another game? Y/N\n").upper()
+        restart = input("Would you like to play another game? Y/N\n\n").upper()
         try:
             if restart == "Y":
                 reset_game = True
